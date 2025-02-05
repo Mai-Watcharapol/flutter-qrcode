@@ -12,6 +12,11 @@ class _QRScannerPageState extends State<QRScannerPage> {
   final QRScannerManager qrManager = QRScannerManager();
 
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -19,29 +24,15 @@ class _QRScannerPageState extends State<QRScannerPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            qrManager.dispose();
+            qrManager.controller?.dispose();
             Navigator.pop(context);
           },
         ),
       ),
-      body: qrManager.buildQRView(
-          context,
-              (data)
-      {
+      body: qrManager.buildQRView(context, (data) {
         qrManager.dispose();
-        Navigator.pop(
-            context,
-            data
-        );
+        Navigator.pop(context, data);
       }),
     );
   }
-
-
-  // @override
-  // void dispose() {
-  //   qrManager.dispose();
-  //   super.dispose();
-  // }
-
 }

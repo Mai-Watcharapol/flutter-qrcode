@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'QR Code Scanner',
-      home: const HomePage(),
+      home: HomePage(),
     );
   }
 }
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       padding: const EdgeInsets.all(12),
       margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.blue),
+        border: Border.all(color: Colors.indigoAccent),
         borderRadius: BorderRadius.circular(8),
       ),
       child: Text(
@@ -74,7 +74,14 @@ class _HomePageState extends State<HomePage> {
           });
         }
       },
-      child: const Text("Scan QR Code"),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: const [
+          Icon(Icons.qr_code_sharp),
+          SizedBox(width: 8),
+          Text("Scan QR Code"),
+        ],
+      ),
     );
   }
 }
