@@ -30,7 +30,7 @@ class _QRScannerPageState extends State<QRScannerPage> {
         ),
       ),
       body: qrManager.buildQRView(context, (data) {
-        qrManager.dispose();
+        qrManager.stopScanning();
         Navigator.pop(context, data);
       }),
     );

@@ -3,9 +3,13 @@ import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'dart:io';
 
 class QRScannerManager {
+
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
+
   QRViewController? _controller;
+
   Barcode? _result;
+
   bool _isListening = false;
 
   QRViewController? get controller => _controller;
@@ -38,7 +42,7 @@ class QRScannerManager {
     startScanning(onCodeScanned);
   }
 
-  void dispose() {
+  void stopScanning() {
     _controller?.dispose();
   }
 
