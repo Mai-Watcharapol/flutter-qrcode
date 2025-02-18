@@ -46,7 +46,7 @@ class QRScannerManager {
     _controller?.dispose();
   }
 
-  Widget buildQRView(BuildContext context, Function(String) onCodeScanned) {
+   Widget buildQRView(BuildContext context, Function(String) onCodeScanned) {
     return QRView(
       key: qrKey,
       overlay: QrScannerOverlayShape(
